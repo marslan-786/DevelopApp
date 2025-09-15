@@ -2,11 +2,10 @@ from sqlalchemy import Column, Integer, String, DateTime
 from datetime import datetime
 from .base import Base
 
-class Bot(Base):
-    __tablename__ = "bots"
+class Group(Base):
+    __tablename__ = "groups"
 
     id = Column(Integer, primary_key=True, index=True)
-    bot_name = Column(String, nullable=False)
-    bot_username = Column(String, nullable=False)
-    created_by = Column(Integer, nullable=False)
+    name = Column(String, nullable=False)
+    members = Column(String)  # comma-separated user IDs
     created_at = Column(DateTime, default=datetime.utcnow)
